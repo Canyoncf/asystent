@@ -1,3 +1,3 @@
-from ekran_startowy.py import strona_tytulowa
+from frontend.ekran_startowy import strona_tytulowa
 
 strona_tytulowa()
