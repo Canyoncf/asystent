@@ -1,11 +1,15 @@
 import datetime
-from pyown import OWN
 
-owm = OWM('YOUR_API_KEY')  # Zastąp 'YOUR_API_KEY' kluczem API z OpenWeatherMap
-mgr = owm.weather_manager()
+# -*- coding: utf-8 -*-
+import pywapi
+import pprint
+pp = pprint.PrettyPrinter(indent=4)
+# id stacji stosowany przez Yahoo
+result = pywapi.get_weather_from_yahoo('PLXX0028', 'metric')
+pp.pprint(result)
 
-observation = mgr.weather_at_place("City, Country")
-w = observation.weather
+# ~nazwa miasta
+result = pywapi.get_weather_from_google('Warszawa')
+pp.pprint(result)
 
-print("Temperature:", w.temperature('celsius')['temp'])
-print("Weather status:", w.status)
+
