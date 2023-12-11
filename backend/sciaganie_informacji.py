@@ -1,15 +1,16 @@
 import datetime
+import requests
 
-# -*- coding: utf-8 -*-
-import pywapi
-import pprint
-pp = pprint.PrettyPrinter(indent=4)
-# id stacji stosowany przez Yahoo
-result = pywapi.get_weather_from_yahoo('PLXX0028', 'metric')
-pp.pprint(result)
+#api_key = str(5cf8ca022bbd767f66f72ce76fab5766)
+latitude = 51.750000
+longitude = 19.466669
+url = f'http://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid=3d5297ba44a4a0ac40fc66c1d9a19fc2'
 
-# ~nazwa miasta
-result = pywapi.get_weather_from_google('Warszawa')
-pp.pprint(result)
+response = requests.get(url)
+data = response.json()
+print(url)
+print("Temperature:", data['main']['temp'])
+print("Weather status:", data['weather'][0]['main'])
+
 
 
